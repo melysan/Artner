@@ -1,6 +1,7 @@
 
 import axios from "axios";
 import { useState } from "react";
+import ImgPrompt from "../components/RandomImage";
 
 
 export default function Img() {
@@ -26,8 +27,8 @@ export default function Img() {
     }
 
     return <div>
+        <ImgPrompt src={image} />
         <button onClick={() => unsplashImage()}>Click here to get a random image</button>
-        <img src={image} style={{ width: 400, height: 500 }} />
         {/* <input onChange={e => setSearch(e.target.value)}/> */}
         {/* <button onClick={()=>Submit()}>Search</button> */}
         {/* {imgResult.map((o,i) => (

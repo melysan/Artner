@@ -1,6 +1,8 @@
+import dynamic from "next/dynamic";
+import Img from "../../pages/maianhimageprompt";
 
-export default function RandomImage() {
-    return <div></div>
-}
+const ImgPrompt = dynamic(() => import('./randomimage'), {
+    ssr: false
+})
 
-// tbc...
+export default ImgPrompt;
