@@ -9,19 +9,19 @@ export default function Img() {
     const [search, setSearch] = useState("");
     const [imgResult, setImgResult] = useState([]);
 
-    // const clientId = "usIQkUNNb1jkh8qcE2OudMG2iv6CE6qurffs4FE6RrA"; 
+    var apiKey = process.env.NEXT_PUBLIC_UNSPLASH_API_KEY;
 
     const unsplashImage = async () => {
-        const result = await axios.get('https://api.unsplash.com/photos/random?client_id=usIQkUNNb1jkh8qcE2OudMG2iv6CE6qurffs4FE6RrA')
+        const result = await axios.get(`https://api.unsplash.com/photos/random?client_id=${apiKey}`)
         console.log(result.data);
         setImage(result.data.urls.regular);
     }
 
 
     const Submit = async () => {
-        const ass = await axios.get('https://api.unsplash.com/search/photos/?page=1&query=' + search + '&client_id=usIQkUNNb1jkh8qcE2OudMG2iv6CE6qurffs4FE6RrA');
-        console.log(ass.data.results);
-        setImgResult([...ass.data.results]);
+        const res = await axios.get(`https://api.unsplash.com/search/photos/?page=1&query=' + search + '&client_id=${apiKey}`);
+        console.log(res.data.results);
+        setImgResult([...res.data.results]);
         //    console.log(search)
     }
 
