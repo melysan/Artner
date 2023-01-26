@@ -7,21 +7,29 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 width: 100vw;
-height: 40vh;
+height: 30vh;
 background-color: #F2DEE9;
+font-size: 1rem;
+
 `
 
-export function Banner() {
+//@media (max-width: 320px) {}
+
+
+export function Banner({
+    bannerHeading = "Default Banner Heading",
+    bannerDescription = "Default Banner Description"
+}) {
     return (
         <>
             <BannerCont>
                 <Text
-                    text="Art Inspiration Generator"
-                    size="32px" />
+                    size="2rem"
+                    text={bannerHeading} />
                 <Text
-                    text="Lorem ipsum dolor sit amet consectetur. Id non at adipiscing sed morbi vel sit urna lectus. Eget lacus morbi facilisis mattis enim. Nisi vehicula orci praesent morbi cras placerat diam. Magna egestas vitae imperdiet eget sem duis molestie."
-                    padding="2em 5em 0 5em"
-                    size="16px" />
+                    text={bannerDescription}
+                    padding="2rem"
+                    size="1rem" />
             </BannerCont>
         </>
     )
