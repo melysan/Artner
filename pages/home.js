@@ -3,6 +3,9 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import { Banner } from '../components/Banner'
+import { NavBar } from '../components/NavBar'
+import { WordPrompt } from '../components/WordPrompt'
+import { ColourPalette } from '../components/ColourPalette'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,7 +21,13 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className={styles.main}>
-                <Banner></Banner>
+                <NavBar></NavBar>
+                <Banner
+                    bannerHeading="Art Inspiration Generator"
+                    bannerDescription="Lorem ipsum dolor sit amet consectetur. Id non at adipiscing sed morbi vel sit urna lectus. Eget lacus morbi facilisis mattis enim. Nisi vehicula orci praesent morbi cras placerat diam. Magna egestas vitae imperdiet eget sem duis molestie." />
+
+                <ColourPalette />
+                <WordPrompt />
                 This is the home page.
             </div>
 
