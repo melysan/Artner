@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Text } from "../Text";
 
 const PaletteDiv = styled.div`
 display: flex;
@@ -16,12 +17,12 @@ export function ColourPalette() {
         let colourRequest = new XMLHttpRequest();
 
         colourRequest.onreadystatechange = function () {
-            if (colourRequest.readyState == 4 && colourRequest.status == 200) {
+            if (colourRequest.readyState == 3 && colourRequest.status == 200) {
                 palette = JSON.parse(colourRequest.responseText).result;
                 console.log(palette);
                 document.getElementById("paletteSquares").innerHTML = "";
                 var i;
-                for (i = 0; i <= 4; i++) {
+                for (i = 0; i <= 3; i++) {
                     var div = document.createElement("div");
                     div.style.width = "100px";
                     div.style.height = "100px";
@@ -40,7 +41,9 @@ export function ColourPalette() {
     }
     return (
         <>
-            <h1>Artner Palette Generator</h1>
+            <Text
+                text="Colour Palette"
+                size="16px" />
             <PaletteDiv id="paletteSquares" />
             <button onClick={() => generatePalette()}>Generate </button>
         </>
