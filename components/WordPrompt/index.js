@@ -2,7 +2,7 @@ import axios from "axios"
 import { useState } from "react";
 import { Text } from "../Text";
 import styled from "styled-components";
-
+import { MainContainer } from "../MainContainer";
 
 const WordContainer = styled.div`
 display: flex;
