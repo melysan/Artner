@@ -4,9 +4,18 @@ import { useState } from "react";
 
 
 const ImgPrompt = styled.img`
-width: 500px;
-height: 500px;
+width: 400px;
+height: 400px;
 object-fit: contain;
+`
+
+const ImgCont = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100%;
+gap: 10px;
+flex-direction: column;
 `
 
 export default function RandomImage() {
@@ -31,7 +40,7 @@ export default function RandomImage() {
         //    console.log(search)
     }
 
-    return <div>
+    return <ImgCont>
         <ImgPrompt src={image} />
         <button onClick={() => unsplashImage()}>Click here to get a random image</button>
         {/* <input onChange={e => setSearch(e.target.value)}/> */}
@@ -39,7 +48,7 @@ export default function RandomImage() {
         {/* {imgResult.map((o,i) => (
         <img src={o.urls.raw} loading="lazy" style={{width: 400, height: 400}}></img>
 ))} */}
-    </div>
+    </ImgCont>
 
 }
 
