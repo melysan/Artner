@@ -1,5 +1,9 @@
+import { prisma } from '../server/db/client';
+import axios from 'axios';
+import { useState, useEffect } from 'react'
+import styled from 'styled-components';
+import { Text } from '../components/Text';
 import Head from 'next/head'
-import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import { Banner } from '../components/Banner'
@@ -8,8 +12,74 @@ import { Footer } from '../components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
+const ArtchivePageFlex = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-content: center;
+align-items: center;`
 
-export default function Artchive() {
+const ArtchiveCont = styled.div`
+background-color: #F4F5F0;
+width: 60%;
+border: 1px black solid;
+margin: 5rem;
+border-radius: 10px;
+`
+
+const ArtchiveDescriptionCont = styled.div`
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+padding: 3em 5em 3em 5em;
+`
+
+const ColumnFlex = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+`
+
+const ArtchiveInput = styled.input`
+width: 40vw;
+border: 1px solid #EABFC9;
+background-color: white;
+border-radius: 5px;
+padding: 1em;
+margin-bottom: 1.5em;
+color: black;
+transition: background-color 0.4s ease-in-out;
+resize: none;
+
+&:focus {
+    background-color: #F2DEE9;
+    resize: none;
+}
+
+&::placeholder {
+    color: #black;
+
+}
+`
+
+
+export default function Artchive({ posts: art }) {
+    const [title, setTitle] = useState('')
+    const [content, setContent] = useState('')
+    const [description, setDescription] = useState('')
+    const [posts, setPosts] = useState(art)
+
+
+    useEffect(() => {
+        setPosts(art)
+    }, [art])
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        const res = await axios.post('/api/posts', { title, description, content })
+        setPosts([...posts, res.data])
+    }
 
     return (
         <>
@@ -19,15 +89,91 @@ export default function Artchive() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <div className={styles.main}>
-                <NavBar />
-                <Banner
-                    bannerHeading="Artchive"
-                    bannerDescription="Lorem ipsum dolor sit amet consectetur. Id non at adipiscing sed morbi vel sit urna lectus. Eget lacus morbi facilisis mattis enim. Nisi vehicula orci praesent morbi cras placerat diam. Magna egestas vitae imperdiet eget sem duis molestie." />
+            <NavBar />
+            <Banner
+                bannerHeading="Artchive"
+                bannerDescription="What is the Artchive? It is an archive of art! A museum of sorts, we want fellow artists to be able to share their work of arts with others.
+                If you feel proud of what you created or just want to put yourself out there, please feel free to share! Or maybe you need to gaze upon some pretty artwork to gather ideas!"
+            />
+            <ArtchivePageFlex>
+                <ArtchiveCont>
 
-            </div>
+                    <ArtchiveDescriptionCont>
+                        <ColumnFlex>
+                            <Text
+                                text="Share your Art"
+                                size="1.5em"
+                                padding="1em" />
 
-            <Footer/>
+                            <form onSubmit={handleSubmit} >
+                                <label>
+                                    <Text
+                                        text="Artist Name"
+                                        size="1em"
+                                        padding="1em 0 0 0" />
+                                </label>
+                                <ArtchiveInput type="text"
+                                    placeholder="Put your artist name here"
+                                    value={title}
+                                    onChange={(e) => setTitle(e.target.value)} />
+
+                                <label>
+                                    <Text
+                                        text="Description"
+                                        size="1em"
+                                        padding="1em 0 0 0" />
+                                </label>
+                                <ArtchiveInput type="text"
+                                    placeholder="Describe your masterpiece"
+                                    value={description}
+                                    onChange={(e) => setDescription(e.target.value)} />
+
+                                <label>
+                                    <Text
+                                        text="Image URL"
+                                        size="1em"
+                                        padding="1em 0 0 0" />
+                                </label>
+                                <ArtchiveInput
+                                    placeholder="Share your image url"
+                                    value={content}
+                                    onChange={(e) => setContent(e.target.value)} />
+
+                                <ColumnFlex>
+                                    <button type="submit">
+                                        <Text
+                                            textAlign='center'
+                                            text="Share"
+                                            size="1em"
+                                            padding="0.5em" />
+                                    </button>
+                                </ColumnFlex>
+
+                            </form>
+                        </ColumnFlex>
+                    </ArtchiveDescriptionCont>
+                </ArtchiveCont>
+
+                {posts && posts.map((art) => (
+                    <div key={art.id}>
+                        <h2>{art.title}</h2>
+                        <p>{art.description}</p>
+                        <img src={art.content} width={200} height={200} />
+                    </div>
+                ))}
+
+            </ArtchivePageFlex>
+            <Footer />
         </>
     )
+}
+
+export async function getServerSideProps() {
+    const posts = await prisma.post.findMany()
+
+    return {
+        props: {
+            posts: JSON.parse(JSON.stringify(posts)),
+        }
+    }
 }

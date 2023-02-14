@@ -43,6 +43,7 @@ export function NavBar() {
                 <NavLogo>
                     <StyledLink href="/home">
                         <Text
+                            colour="white"
                             size="1em"
                             text="LOGO FILLER" />
                     </StyledLink>
@@ -51,6 +52,7 @@ export function NavBar() {
                 <NavListItem>
                     <StyledLink href="/about">
                         <Text
+                            colour="white"
                             size="1em"
                             text="About" />
                     </StyledLink>
@@ -58,6 +60,7 @@ export function NavBar() {
                 <NavListItem>
                     <StyledLink href="/resources">
                         <Text
+                            colour="white"
                             size="1em"
                             text="Resources" />
                     </StyledLink>
@@ -65,6 +68,7 @@ export function NavBar() {
                 <NavListItem>
                     <StyledLink href="/artchive">
                         <Text
+                            colour="white"
                             size="1em"
                             text="Artchive" />
                     </StyledLink>
@@ -72,6 +76,7 @@ export function NavBar() {
                 <NavListItem>
                     <StyledLink href="/home">
                         <Text
+                            colour="white"
                             size="1em"
                             text="Home" />
                     </StyledLink>
