@@ -5,9 +5,19 @@ import styles from '../styles/Home.module.css'
 import { Banner } from '../components/Banner'
 import { NavBar } from '../components/NavBar'
 import { Footer } from '../components/Footer'
+import { AboutComp } from '../components/AboutContainer'
+import styled from "styled-components";
 
 const inter = Inter({ subsets: ['latin'] })
 
+const AboutFlex = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-content: center;
+align-items: center;
+
+`
 
 export default function About() {
 
@@ -19,14 +29,14 @@ export default function About() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <div className={styles.main}>
+            <AboutFlex>
                 <NavBar />
                 <Banner
                     bannerHeading="About"
-                    bannerDescription="Lorem ipsum dolor sit amet consectetur. Id non at adipiscing sed morbi vel sit urna lectus. Eget lacus morbi facilisis mattis enim. Nisi vehicula orci praesent morbi cras placerat diam. Magna egestas vitae imperdiet eget sem duis molestie." />
-
-            </div>
-
+                    bannerDescription="Artner is your one-stop web app for all your inspirational needs! Whether you need an art palette, word prompt, or imagery; we got your back.
+                    Not only that but we've included resources to share with you, and an archive of art AKA Artchive for you to share with others!" />
+                <AboutComp />
+            </AboutFlex>
             <Footer />
         </>
     )
