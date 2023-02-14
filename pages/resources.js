@@ -3,6 +3,9 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import { Banner } from '../components/Banner'
 import { NavBar } from '../components/NavBar'
+import { ResourceCard } from '../components/ResourceCont'
+import { Footer } from '../components/Footer'
+
 
 import styles from '../styles/Home.module.css'
 
@@ -23,9 +26,10 @@ export default function Resources() {
                 <NavBar />
                 <Banner
                     bannerHeading="Resources"
-                    bannerDescription="Lorem ipsum dolor sit amet consectetur. Id non at adipiscing sed morbi vel sit urna lectus. Eget lacus morbi facilisis mattis enim. Nisi vehicula orci praesent morbi cras placerat diam. Magna egestas vitae imperdiet eget sem duis molestie." />
-
+                    bannerDescription="Welcome to our page of free art resources! Here, you will find a collection of valuable tools and materials that will help you to unleash your creativity and enhance your artistic skills without breaking the bank. So, dive in and start creating!" />
+                <ResourceCard />
             </div>
+            <Footer/>
         </>
     )
 }

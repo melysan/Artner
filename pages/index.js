@@ -1,10 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { Inter } from '@next/font/google'
+import { Inter, Splash } from '@next/font/google'
 import styles from '../styles/Home.module.css'
+import { Text } from '../components/Text'
+import { SplashCont } from '../components/SplashCont'
 
 const inter = Inter({ subsets: ['latin'] })
-
 
 export default function Welcome() {
 
@@ -17,10 +18,8 @@ export default function Welcome() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.main}>
-        This is welcome/splash page.
+        <SplashCont/>
       </div>
-
-
     </>
   )
 }
