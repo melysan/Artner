@@ -1,24 +1,75 @@
 {
-    "resources": [
+    "data": [
+        {
+            "id": 0,
+            "title": "Fuel",
+            "content": "F.U.E.L is a TRUCK Contemporary Art initiative that redistributes new and gently-used art materials to our communities through the F.U.E.L Supply Store, fostering sustainable artistic practice and encouraging resource sharing.",
+            "link": "https://www.truck.ca/fuel",
+            "src": "/resourcesImg/fuel.png"
+        },
         {
             "id": 1,
-            "title": "Post 1",
-            "content": "This is the full content of post 1"
+            "title": "Supply Victoria",
+            "content": "SUPPLY is a non-profit that redistributes used art, office, & school supplies and offers creative reuse education to youth and adults.",
+            "link": "https://supplyvictoria.ca/",
+            "src": "/resourcesImg/SupplyVictoria.png"
+
+
         },
         {
             "id": 2,
-            "title": "Post 2",
-            "content": "This is the full content of post 2"
+            "title": "Urban Source",
+            "content": "Urban Source offers unique and diverse discarded materials for artistic endeavors, which are stored in large barrels for bulk sale. They also carry a variety of traditional art and craft supplies.",
+            "link": "https://urban-source.ca/store/",
+            "src": "/resourcesImg/urbanSource.png"
+
+
         },
         {
             "id": 3,
-            "title": "Post 3",
-            "content": "This is the full content of post 3"
+            "title": "Jerry's Artarama",
+            "content": "Jery's Artarama is a great place to find art supplies at a discount. They have a wide variety of art supplies and are always adding new items to their sale section.",
+            "link": "https://www.jerrysartarama.com/on-sale",
+            "src": "/resourcesImg/JerryLogo.svg"
+
+
         },
         {
             "id": 4,
-            "title": "Post 4",
-            "content": "This is the full content of post 4"
+            "title": "Artist & Craftsman Supply",
+            "content": "Artist & Craftsman Supply is a top destination for artists, designers, and students seeking high-quality art supplies. They offer affordable prices, exceptional service, and an extensive inventory of paints, brushes, canvas, paper, and more.",
+            "link": "https://artistcraftsman.com/",
+            "src": "/resourcesImg/artistLogo.png"
+
+
+        },
+        {
+            "id": 5,
+            "title": "Jackson's Art Supplies",
+            "content": "Jackson's Art is known for their fast and reliable shipping, competitive prices, and commitment to sustainability through their eco-friendly product offerings and packaging.",
+            "link": "https://www.jacksonsart.com/en-ca/",
+            "src": "/resourcesImg/jacksonArt.svg"
+
+
+        },
+        {
+            "id": 6,
+            "title": "Blick",
+            "content": "Blick has a vast selection of art supplies for all artists, including paints, brushes, canvas, paper, drafting tools, and more, from popular and lesser-known brands. They offer a wide range of art education resources, such as online and in-store workshops, classes, and tutorials.",
+            "link": "https://www.dickblick.com/",
+            "src": "/resourcesImg/blick.png"
+
+
+        },{
+            "id": 7,
+            "title": "Cheap Joe's Art Stuff",
+            "content": "Cheap Joe's Art Stuff is committed to supporting artists and providing them with the tools they need to create and express themselves.  With a focus on affordability and accessibility, Cheap Joe's offers a wide range of art supplies for artists of all levels, from beginners to professionals.",
+            "link": "https://www.cheapjoes.com/",
+            "src": "/resourcesImg/cheapjoe.png"
+
+
         }
     ]
 }
+
+

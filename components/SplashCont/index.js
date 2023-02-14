@@ -15,6 +15,7 @@ height: 100%;
 margin: 5rem;
 border-radius: 10px;
 flex-direction: column;
+background-color: #F4F5F0;
 `
 const SplashDescCont = styled.div`
 display: flex;
@@ -29,9 +30,10 @@ width: 95px;
 height: 95px;
 `
 
-const Desc = styled.div`
+const Logo = styled.img`
 display: flex;
-width: 100%;
+width: 25rem;
+margin: 3rem 0rem;
 align-items: center;
 flex-direction: column;
 `
@@ -42,7 +44,7 @@ export function SplashCont() {
 
     return (
         <SplashContDiv>
-            <Text padding="1rem">Default Logo</Text>
+            <Logo src="/Artner.svg" />
             {/* <Desc> */}
                 <SplashDescCont>
                     <SplashIcon src="/splash_artner_icons/ideasIcon.svg" />
@@ -54,10 +56,10 @@ export function SplashCont() {
                 </SplashDescCont>
                 <SplashDescCont>
                     <SplashIcon src="/splash_artner_icons/resourceIcon.svg" />
-                    <Text size="20px" text="We got free art resources for artist in Canada to enjoy!"></Text>
+                    <Text size="20px" text="We got free & cheap art resources for artists to enjoy!"></Text>
                 </SplashDescCont>
             {/* </Desc> */}
-            <button onClick={()=>r.push('/home')}>Slay</button>
+            <button onClick={()=>r.push('/home')}>Let’s Draw!</button>
         </SplashContDiv>
     )
 }

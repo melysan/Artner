@@ -7,6 +7,7 @@ import { NavBar } from '../components/NavBar'
 import { WordPrompt } from '../components/WordPrompt'
 import { ColourPalette } from '../components/ColourPalette'
 import RandomImage from '../components/RandomImage/randomimage'
+import { Footer } from '../components/Footer'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -34,7 +35,7 @@ export default function Home() {
                 <RandomImage/>
             </div>
 
-
+<Footer/>
         </>
     )
 }
