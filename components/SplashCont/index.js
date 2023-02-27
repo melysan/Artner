@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import { Text } from "../Text";
 import { useRouter } from 'next/router'
+import { motion } from "framer-motion"
+import { useState, useEffect } from "react";
+import { Button } from "../Button";
 
 
 const SplashContDiv = styled.div`
@@ -16,6 +19,7 @@ margin: 5rem;
 border-radius: 10px;
 flex-direction: column;
 background-color: #F4F5F0;
+overflow-y: hidden;
 `
 const SplashDescCont = styled.div`
 display: flex;
@@ -23,7 +27,7 @@ flex-direction: row;
 align-items: center;
 gap: 2rem;
 width: 100%;
-margin: 1rem;
+margin: 1rem ;
 `
 const SplashIcon = styled.img`
 width: 95px;
@@ -33,7 +37,7 @@ height: 95px;
 const Logo = styled.img`
 display: flex;
 width: 25rem;
-margin: 3rem 0rem;
+margin: 2rem 0rem;
 align-items: center;
 flex-direction: column;
 `
@@ -42,24 +46,59 @@ export function SplashCont() {
 
     const r = useRouter();
 
+    const [active, setActive] = useState(0);
+    const [complete, setComplete] = useState(false);
+
+    const splashinfo = [
+        {
+            icon: "/splash_artner_icons/ideas_colored.svg",
+            desc: "Generate ideas using our prompts to create masterpieces."
+        },
+        {
+            icon: "/splash_artner_icons/artchive_colored.svg",
+            desc: "Show off your art to others on the Artchive."
+        },
+        {
+            icon: "/splash_artner_icons/resource_colored.svg",
+            desc: "We got free & cheap art resources for artists to enjoy!"
+        }
+    ]
+
     return (
-        <SplashContDiv>
-            <Logo src="/Artner.svg" />
-            {/* <Desc> */}
-                <SplashDescCont>
-                    <SplashIcon src="/splash_artner_icons/ideasIcon.svg" />
-                    <Text size="20px" text="Generate ideas using our prompts to create masterpieces."></Text>
-                </SplashDescCont>
-                <SplashDescCont>
-                    <SplashIcon src="/splash_artner_icons/artchiveIcon.svg" />
-                    <Text size="20px" text="Show off your art to others on the Artchive."></Text>
-                </SplashDescCont>
-                <SplashDescCont>
-                    <SplashIcon src="/splash_artner_icons/resourceIcon.svg" />
-                    <Text size="20px" text="We got free & cheap art resources for artists to enjoy!"></Text>
-                </SplashDescCont>
-            {/* </Desc> */}
-            <button onClick={()=>r.push('/home')}>Let’s Draw!</button>
-        </SplashContDiv>
+        <motion.div
+            initial={{ y: 200, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ ease: "easeOut", duration: 1 }}
+        >
+            <SplashContDiv>
+                <Logo src="/artner_logo.svg" />
+
+                {splashinfo.map((info, i) => (
+                    <motion.div
+                        initial={{ y: 10, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ ease: "easeOut", delay: active === i ? 0: 0.5 * i, duration: 1.5}}
+                        onAnimationComplete={() => setComplete(true)}
+                    >
+                        <SplashDescCont key={i}>
+                            <SplashIcon src={info.icon} />
+                            <Text size="20px" text={info.desc}></Text>
+                        </SplashDescCont>
+                    </motion.div>
+                )
+                )}
+
+                <motion.div
+                    initial={{ y: 10, opacity: 0}}
+                    animate={{ y: 0, opacity: complete ? 1 : 0}}
+                    transition={{ ease: "easeOut", delay: 1.5, duration: 1 }}
+                    
+                >
+                    <Button txt="Let’s Draw!" onRoute={()=>r.push('/home')}/>
+                    {/* <button onClick={() => r.push('/home')}>Let’s Draw!</button> */}
+                </motion.div>
+            </SplashContDiv>
+        </motion.div>
     )
+
 }
