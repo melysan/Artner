@@ -53,9 +53,7 @@ export function NavBar() {
                             size="1em"
                             text="LOGO FILLER" />
                     </StyledLink> */}
-                    <NavLogo>
 
-                    </NavLogo>
                 </NavLogo>
 
                 <NavListItem>
