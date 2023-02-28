@@ -5,6 +5,7 @@ import { Banner } from '../components/Banner'
 import { NavBar } from '../components/NavBar'
 import { ResourceCard } from '../components/ResourceCont'
 import { Footer } from '../components/Footer'
+import {motion} from 'framer-motion'
 
 
 import styles from '../styles/Home.module.css'
