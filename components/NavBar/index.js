@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Text } from "../Text";
 import Link from "next/link";
+import Image from "next/image";
 
 const NavList = styled.ul`
 list-style-type: none;
@@ -18,6 +19,7 @@ float: right;
 
 const NavLogo = styled.li`
 float: left;
+padding-left: 2em;
 `
 
 
@@ -35,22 +37,29 @@ text-decoration: none;
 
 }`
 
+
 export function NavBar() {
     return (
         <>
             <NavList>
 
                 <NavLogo>
-                    <StyledLink href="/home">
+                    <Link href="/home">
+                        <Image src="Artner.svg" width={160} height={80}></Image>
+                    </Link>
+                    {/* <StyledLink href="/home">
                         <Text
+                            colour="white"
                             size="1em"
                             text="LOGO FILLER" />
-                    </StyledLink>
+                    </StyledLink> */}
+
                 </NavLogo>
 
                 <NavListItem>
                     <StyledLink href="/about">
                         <Text
+                            colour="white"
                             size="1em"
                             text="About" />
                     </StyledLink>
@@ -58,6 +67,7 @@ export function NavBar() {
                 <NavListItem>
                     <StyledLink href="/resources">
                         <Text
+                            colour="white"
                             size="1em"
                             text="Resources" />
                     </StyledLink>
@@ -65,6 +75,7 @@ export function NavBar() {
                 <NavListItem>
                     <StyledLink href="/artchive">
                         <Text
+                            colour="white"
                             size="1em"
                             text="Artchive" />
                     </StyledLink>
@@ -72,6 +83,7 @@ export function NavBar() {
                 <NavListItem>
                     <StyledLink href="/home">
                         <Text
+                            colour="white"
                             size="1em"
                             text="Home" />
                     </StyledLink>
