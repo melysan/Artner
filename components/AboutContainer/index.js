@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Text } from "../Text";
+import Image from "next/image";
 
 const MainContDiv = styled.div`
 background-color: #F4F5F0;
@@ -7,6 +8,11 @@ width: 60%;
 border: 1px black solid;
 margin: 5rem;
 border-radius: 10px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+
 `
 
 const AboutDescDiv = styled.div`
@@ -14,22 +20,34 @@ display: flex;
 flex-direction: row;
 align-items: center;
 justify-content: center;
-padding: 3em 5em 3em 5em;
-`
 
-// const AboutImage = styled.img`
-// width: 30%;
-// height: 30%;
-// `
+@media (min-width: 1280px) {
+    padding: 1em 6em 1em 6em;
+}
+
+  @media (min-width: 820px) and (max-width: 1280px){
+    padding: 1em 6em 1em 6em;
+}
+
+  @media (min-width: 414px) and (max-width: 820px) {
+    padding: 1em 2em 1em 2em;
+  }
+
+  @media (max-width: 414px) {
+    padding: 1em 1em 1em 1em;
+}
+
+`
 
 export function AboutComp() {
 
     return (
         <MainContDiv>
+            <Image src="/about_artner_icons/Melysa_MaiAnh_Names.svg" width={300} height={300}></Image>
             <AboutDescDiv>
                 <Text
                     text="1."
-                    size="6rem"
+                    size="2rem"
                     weight="800"
                     colour="#EABFC9" />
                 <Text
@@ -39,11 +57,11 @@ export function AboutComp() {
                     size="1rem"
                     padding="2em" />
             </AboutDescDiv>
-
+            <Image src="/about_artner_icons/MaiAnh.svg" width={200} height={200}></Image>
             <AboutDescDiv>
                 <Text
                     text="2."
-                    size="6rem"
+                    size="2rem"
                     weight="800"
                     colour="#EABFC9" />
                 <Text
@@ -53,11 +71,11 @@ export function AboutComp() {
                     size="1rem"
                     padding="2em" />
             </AboutDescDiv>
-
+            <Image src="/about_artner_icons/Melysa.svg" width={200} height={200}></Image>
             <AboutDescDiv>
                 <Text
                     text="3."
-                    size="6rem"
+                    size="2rem"
                     weight="800"
                     colour="#EABFC9" />
                 <Text
