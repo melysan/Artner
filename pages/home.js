@@ -13,7 +13,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 gap: 2rem;
-margin: 1rem;
+margin: 2rem;
 `
 
 const MainRow = styled.div`

@@ -6,13 +6,12 @@ const MainContDiv = styled.div`
 background-color: #F4F5F0;
 width: 60%;
 border: 1px black solid;
-margin: 5rem;
+margin: 2rem;
 border-radius: 10px;
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-
 `
 
 const AboutDescDiv = styled.div`
