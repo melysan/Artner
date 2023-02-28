@@ -4,21 +4,20 @@ import { useState, useEffect } from 'react'
 import styled from 'styled-components';
 import { Text } from '../components/Text';
 import Head from 'next/head'
-import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import { Banner } from '../components/Banner'
 import { NavBar } from '../components/NavBar'
 import { Footer } from '../components/Footer'
 
-const inter = Inter({ subsets: ['latin'] })
 
 const ArtchivePageFlex = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-content: center;
-align-items: center;`
-
+align-items: center;
+flex-wrap: no-wrap;
+`
 const ArtchiveCont = styled.div`
 background-color: #F4F5F0;
 width: 60%;
@@ -58,11 +57,79 @@ resize: none;
 }
 
 &::placeholder {
-    color: #black;
+    color: #A8A8A8;
 
 }
 `
 
+const Row = styled.div`
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+`
+const ArtPost = styled.div`
+display: flex;
+flex-direction: column;
+background-color: #F4F5F0;
+border: 1px solid black;
+padding: 1em;
+margin: 1em;
+border-radius: 10px;
+`
+const ArtistName = styled.h2`
+font-family: 'Epilogue', sans-serif;
+font-size: 1em;
+font-weight: 500;
+color: #E1A5AD;
+display: flex;
+justify-content: center;
+`
+
+const ArtDescription = styled.p`
+font-family: 'Epilogue', sans-serif;
+font-size: 1em;
+color: #8B7979;
+display: flex;
+justify-content: center;
+`
+
+const Art = styled.img`
+border:solid 2px;
+border-bottom-color:#ffe;
+border-left-color:#eed;
+border-right-color:#eed;
+border-top-color:#ccb;
+max-height:100%;
+max-width:100%;
+`
+
+const ArtFrame = styled.div`
+    background-color:#F4F5F0;
+    border:solid 5vmin #eee;
+    border-bottom-color:#fff;
+    border-left-color:#eee;
+    border-radius:2px;
+    border-right-color:#eee;
+    border-top-color:#ddd;
+    box-shadow:0 0 5px 0 rgba(0,0,0,.25) inset, 0 2px 5px 1px rgba(0,0,0,.25);
+    box-sizing:border-box;
+    display:inline-block;
+    margin:2vh 2vw;
+    padding:5vmin;
+    position:relative;
+    text-align:center;
+    &:before {
+      border-radius:2px;
+      bottom:-2vmin;
+      box-shadow:0 2px 5px 0 rgba(0,0,0,.25) inset;
+      content:"";
+      left:-2vmin;
+      position:absolute;
+      right:-2vmin;
+      top:-2vmin;
+    }
+  }`
 
 export default function Artchive({ posts: art }) {
     const [title, setTitle] = useState('')
@@ -153,16 +220,17 @@ export default function Artchive({ posts: art }) {
                         </ColumnFlex>
                     </ArtchiveDescriptionCont>
                 </ArtchiveCont>
-
-                {posts && posts.map((art) => (
-                    <div key={art.id}>
-                        <h2>{art.title}</h2>
-                        <p>{art.description}</p>
-                        <img src={art.content} width={200} height={200} />
-                    </div>
-                ))}
-
+                <Row>
+                    {posts && posts.map((art) => (
+                        <ArtFrame key={art.id}>
+                            <Art src={art.content} width={200} height={200} />
+                            <ArtistName>By {art.title}</ArtistName>
+                            <ArtDescription>"{art.description}"</ArtDescription>
+                        </ArtFrame>
+                    ))}
+                </Row>
             </ArtchivePageFlex>
+
             <Footer />
         </>
     )
