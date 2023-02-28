@@ -30,6 +30,14 @@ height: 100%;
 border-radius: 10px;
 flex-direction: column;
 background-color: #F4F5F0;
+@media (max-width: 820px) {
+    width: 35rem;
+    padding: 1rem 5rem;
+}
+@media (max-width: 414px) {
+    width: 17rem;
+    padding: 1rem 3rem; 
+}
 `
 
 const ResDescCont = styled.div`
@@ -39,6 +47,12 @@ align-items: center;
 gap: 2rem;
 width: 100%;
 margin: 1rem;
+@media (max-width: 820px) {
+    flex-direction: row;
+}
+@media (max-width: 414px) {
+    flex-direction: column;
+}
 `
 const ResImg = styled.img`
 width: 300px;
@@ -53,6 +67,8 @@ width: 100%;
 flex-direction: column;
 gap: 2rem;
 align-items: center;
+@media (min-width: 414px) and (max-width: 896px) {
+}
 `
 
 export function ResourceCard() {
