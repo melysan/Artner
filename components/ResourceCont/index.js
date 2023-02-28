@@ -3,6 +3,8 @@ import { Text } from "../Text"
 import { useState, useEffect } from "react"
 import data from "../../data/resources.json"
 import { useRouter } from "next/router"
+import {Button } from "../Button"
+import {motion} from "framer-motion" 
 
 const MainResCont = styled.div`
 display: flex;
@@ -12,6 +14,7 @@ flex-direction: column;
 width: 100%;
 height: 100%;
 max-width: 100vw;
+overflow-y: hidden;
 `
 
 const ResContDiv = styled.div`
@@ -27,6 +30,14 @@ height: 100%;
 border-radius: 10px;
 flex-direction: column;
 background-color: #F4F5F0;
+@media (max-width: 820px) {
+    width: 35rem;
+    padding: 1rem 5rem;
+}
+@media (max-width: 414px) {
+    width: 17rem;
+    padding: 1rem 3rem; 
+}
 `
 
 const ResDescCont = styled.div`
@@ -36,6 +47,12 @@ align-items: center;
 gap: 2rem;
 width: 100%;
 margin: 1rem;
+@media (max-width: 820px) {
+    flex-direction: row;
+}
+@media (max-width: 414px) {
+    flex-direction: column;
+}
 `
 const ResImg = styled.img`
 width: 300px;
@@ -50,6 +67,8 @@ width: 100%;
 flex-direction: column;
 gap: 2rem;
 align-items: center;
+@media (min-width: 414px) and (max-width: 896px) {
+}
 `
 
 export function ResourceCard() {
@@ -63,16 +82,30 @@ export function ResourceCard() {
 
     return (
         <MainResCont>
-            {items.map((resource) => (<ResContDiv>
+
+            {items.map((resource) => (
+            <motion.div 
+            initial={{opacity: 0, y: 100}}
+            whileInView={{opacity: 1, y: 0}}
+            transition={{ ease: 'easeOut', duration: 1}}
+            viewport={{ once: true }}
+            >
+            <ResContDiv>
                 <ResDescCont>
                     <ResImg src={resource.src} />
                     <ResInfo>
                         <Text weight='500' text={resource.title} size='26px'></Text>
                         <Text text={resource.content} size='16px'></Text>
-                        <button onClick={()=>r.push(resource.link)}>Visit Site</button>
+                        <Button 
+                        width="225px"
+                        height="40px"
+                        margin="0rem" 
+                        onRoute={()=>r.push(resource.link)} 
+                        txt='Visit Site'></Button>
                     </ResInfo>
                 </ResDescCont>
-            </ResContDiv>))}
+            </ResContDiv>
+            </motion.div>))}
         </MainResCont>
     )
 }
