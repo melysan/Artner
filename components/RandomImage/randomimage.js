@@ -5,9 +5,9 @@ import { Text } from "../Text";
 
 
 const ImgPrompt = styled.img`
-width: 400px;
-height: 400px;
-object-fit: contain;
+width: 300px;
+height: 300px;
+object-fit: cover;
 `
 
 const ImgCont = styled.div`
@@ -16,6 +16,19 @@ justify-content: center;
 align-items: center;
 height: 100%;
 flex-direction: column;
+`
+
+const ImgButton = styled.button`
+background-color: #9CB7D4;
+color: black;
+border: none;
+width: 245px;
+height: 55px;
+margin: 1rem;
+font-size: 16px;
+&:hover {
+background-color: #5F7A98;
+}
 `
 
 export default function RandomImage() {
@@ -36,13 +49,13 @@ export default function RandomImage() {
     }, [])
 
     return (
-    <>
-       <Text size= '16px' text="Image Generator"/>
-    <ImgCont>
-        <ImgPrompt src={image} />
-        <button onClick={() => unsplashImage()}>Click here to get a random image</button>
-    </ImgCont>
-    </>
+        <>
+            <Text size='16px' text="Image Generator" />
+            <ImgCont>
+                <ImgPrompt src={image} />
+            </ImgCont>
+            <ImgButton onClick={() => unsplashImage()}>Generate Random Image</ImgButton>
+        </>
     )
 
 }

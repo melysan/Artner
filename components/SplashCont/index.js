@@ -96,7 +96,7 @@ export function SplashCont() {
                     <motion.div
                         initial={{ y: 10, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        transition={{ ease: "easeOut", delay: active === i ? 0: 0.5 * i, duration: 1.5}}
+                        transition={{ ease: "easeOut", delay: active === i ? 0 : 0.5 * i, duration: 1.5 }}
                         onAnimationComplete={() => setComplete(true)}
                     >
                         <SplashDescCont key={i}>
@@ -108,12 +108,12 @@ export function SplashCont() {
                 )}
 
                 <motion.div
-                    initial={{ y: 10, opacity: 0}}
-                    animate={{ y: 0, opacity: complete ? 1 : 0}}
-                    transition={{ ease: "easeOut", delay: 1.5, duration: 1 }}
-                    
+                    initial={{ y: 10, opacity: 0 }}
+                    animate={{ y: 0, opacity: complete ? 1 : 0 }}
+                    transition={{ ease: "easeOut", delay: 0.5, duration: 1 }}
+
                 >
-                    <Button txt="Let’s Draw!" onRoute={()=>r.push('/home')}/>
+                    <Button txt="Let’s Draw!" onRoute={() => r.push('/home')} />
                     {/* <button onClick={() => r.push('/home')}>Let’s Draw!</button> */}
                 </motion.div>
             </SplashContDiv>
