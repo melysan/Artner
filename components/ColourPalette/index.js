@@ -1,9 +1,27 @@
 import styled from "styled-components";
 import { Text } from "../Text";
+import { useEffect } from "react";
 
 const PaletteDiv = styled.div`
 display: flex;
 flex-display: row;`
+
+const PaletteButton = styled.button`
+background-color: #9CB7D4;
+color: black;
+border: none;
+width: 245px;
+height: 55px;
+margin: 1rem;
+font-size: 16px;
+&:hover {
+background-color: #5F7A98;
+}
+`
+const FlexWrap = styled.div`
+display: flex;
+flex-wrap: wrap;
+`
 
 export function ColourPalette() {
 
@@ -24,10 +42,12 @@ export function ColourPalette() {
                 var i;
                 for (i = 0; i <= 3; i++) {
                     var div = document.createElement("div");
-                    div.style.width = "100px";
-                    div.style.height = "100px";
+                    div.style.width = "80px";
+                    div.style.height = "80px";
                     div.style.background = "rgb(" + palette[i].toString() + ")";
                     div.style.color = "white"
+                    div.style.fontSize = "12px"
+                    div.style.textAlign = "center"
                     div.innerHTML = palette[i]
                     document.getElementById("paletteSquares").appendChild(div);
                 }
@@ -39,13 +59,21 @@ export function ColourPalette() {
         colourRequest.open("POST", url, true);
         colourRequest.send(JSON.stringify(data));
     }
+
+
+    useEffect(() => {
+        generatePalette();
+    }, []);
+
     return (
         <>
             <Text
                 text="Colour Palette"
                 size="16px" />
-            <PaletteDiv id="paletteSquares" />
-            <button onClick={() => generatePalette()}>Generate </button>
+            <FlexWrap>
+                <PaletteDiv id="paletteSquares" />
+            </FlexWrap>
+            <PaletteButton onClick={() => generatePalette()}>Generate Random Palette</PaletteButton>
         </>
     )
 }

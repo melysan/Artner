@@ -24,12 +24,20 @@ align-items: flex-end;
 
 const BoxContainer = styled.div`
 background-color: #F4F5F0;
-width: 60%;
+min-width: 60%;
+max-width: 100%;
 border: 1px black solid;
 padding: 2em 0 2em 0;
 border-radius: 10px;
 display: flex;
 justify-content: center;
+`
+
+const FlexWrap = styled.div`
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
 `
 
 export default function Home() {
@@ -58,11 +66,16 @@ export default function Home() {
                 <BoxContainer>
 
                     <MainRow>
-                        <MainColumn>
+                        <FlexWrap>
+                            <MainColumn>
 
-                            <WordPrompt />
-                        </MainColumn>
-                        <RandomImage />
+                                <WordPrompt />
+                            </MainColumn>
+                            <MainColumn>
+                                <RandomImage />
+                            </MainColumn>
+                        </FlexWrap>
+
                     </MainRow>
                 </BoxContainer>
 

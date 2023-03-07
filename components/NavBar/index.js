@@ -45,7 +45,7 @@ export function NavBar() {
 
                 <NavLogo>
                     <Link href="/home">
-                        <Image src="Artner.svg" width={160} height={80}></Image>
+                        <Image src="artner_logo.svg" width={160} height={80}></Image>
                     </Link>
                     {/* <StyledLink href="/home">
                         <Text
