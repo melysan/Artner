@@ -7,6 +7,7 @@ import { NavBar } from '../components/NavBar'
 import { Footer } from '../components/Footer'
 import { AboutComp } from '../components/AboutContainer'
 import styled from "styled-components";
+import { motion } from 'framer-motion'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -28,14 +29,22 @@ export default function About() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <AboutFlex>
-                <NavBar />
-                <Banner
-                    bannerHeading="About"
-                    bannerDescription="Artner is your one-stop web app for all your inspirational needs! Whether you need an art palette, word prompt, or imagery; we got your back.
+            <NavBar />
+            <Banner
+                bannerHeading="About"
+                bannerDescription="Artner is your one-stop web app for all your inspirational needs! Whether you need an art palette, word prompt, or imagery; we got your back.
                     Not only that but we've included resources to share with you, and an archive of art AKA Artchive for you to share with others!" />
-                <AboutComp />
-            </AboutFlex>
+            <motion.div
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ ease: 'easeOut', duration: 1 }}
+                viewport={{ once: true }}
+            >
+                <AboutFlex>
+
+                    <AboutComp />
+                </AboutFlex>
+            </motion.div>
             <Footer />
         </>
     )

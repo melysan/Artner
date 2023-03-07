@@ -8,6 +8,7 @@ import styles from '../styles/Home.module.css'
 import { Banner } from '../components/Banner'
 import { NavBar } from '../components/NavBar'
 import { Footer } from '../components/Footer'
+import { motion } from 'framer-motion';
 
 
 const ArtchivePageFlex = styled.div`
@@ -102,6 +103,7 @@ border-right-color:#eed;
 border-top-color:#ccb;
 max-height:100%;
 max-width:100%;
+object-fit: cover;
 `
 
 const ArtFrame = styled.div`
@@ -162,74 +164,81 @@ export default function Artchive({ posts: art }) {
                 bannerDescription="What is the Artchive? It is an archive of art! A museum of sorts, we want fellow artists to be able to share their work of arts with others.
                 If you feel proud of what you created or just want to put yourself out there, please feel free to share! Or maybe you need to gaze upon some pretty artwork to gather ideas!"
             />
-            <ArtchivePageFlex>
-                <ArtchiveCont>
+            <motion.div
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ ease: 'easeOut', duration: 1 }}
+                viewport={{ once: true }}
+            >
+                <ArtchivePageFlex>
+                    <ArtchiveCont>
 
-                    <ArtchiveDescriptionCont>
-                        <ColumnFlex>
-                            <Text
-                                text="Share your Art"
-                                size="1.5em"
-                                padding="1em" />
+                        <ArtchiveDescriptionCont>
+                            <ColumnFlex>
+                                <Text
+                                    text="Share your Art"
+                                    size="1.5em"
+                                    padding="1em" />
 
-                            <form onSubmit={handleSubmit} >
-                                <label>
-                                    <Text
-                                        text="Artist Name"
-                                        size="1em"
-                                        padding="1em 0 0 0" />
-                                </label>
-                                <ArtchiveInput type="text"
-                                    placeholder="Put your artist name here"
-                                    value={title}
-                                    onChange={(e) => setTitle(e.target.value)} />
-
-                                <label>
-                                    <Text
-                                        text="Description"
-                                        size="1em"
-                                        padding="1em 0 0 0" />
-                                </label>
-                                <ArtchiveInput type="text"
-                                    placeholder="Describe your masterpiece"
-                                    value={description}
-                                    onChange={(e) => setDescription(e.target.value)} />
-
-                                <label>
-                                    <Text
-                                        text="Image URL"
-                                        size="1em"
-                                        padding="1em 0 0 0" />
-                                </label>
-                                <ArtchiveInput
-                                    placeholder="Share your image url"
-                                    value={content}
-                                    onChange={(e) => setContent(e.target.value)} />
-
-                                <ColumnFlex>
-                                    <button type="submit">
+                                <form onSubmit={handleSubmit} >
+                                    <label>
                                         <Text
-                                            textAlign='center'
-                                            text="Share"
+                                            text="Artist Name"
                                             size="1em"
-                                            padding="0.5em" />
-                                    </button>
-                                </ColumnFlex>
+                                            padding="1em 0 0 0" />
+                                    </label>
+                                    <ArtchiveInput type="text"
+                                        placeholder="Put your artist name here"
+                                        value={title}
+                                        onChange={(e) => setTitle(e.target.value)} />
 
-                            </form>
-                        </ColumnFlex>
-                    </ArtchiveDescriptionCont>
-                </ArtchiveCont>
-                <Row>
-                    {posts && posts.map((art) => (
-                        <ArtFrame key={art.id}>
-                            <Art src={art.content} width={200} height={200} />
-                            <ArtistName>By {art.title}</ArtistName>
-                            <ArtDescription>"{art.description}"</ArtDescription>
-                        </ArtFrame>
-                    ))}
-                </Row>
-            </ArtchivePageFlex>
+                                    <label>
+                                        <Text
+                                            text="Description"
+                                            size="1em"
+                                            padding="1em 0 0 0" />
+                                    </label>
+                                    <ArtchiveInput type="text"
+                                        placeholder="Describe your masterpiece"
+                                        value={description}
+                                        onChange={(e) => setDescription(e.target.value)} />
+
+                                    <label>
+                                        <Text
+                                            text="Image URL"
+                                            size="1em"
+                                            padding="1em 0 0 0" />
+                                    </label>
+                                    <ArtchiveInput
+                                        placeholder="Share your image url"
+                                        value={content}
+                                        onChange={(e) => setContent(e.target.value)} />
+
+                                    <ColumnFlex>
+                                        <button type="submit">
+                                            <Text
+                                                textAlign='center'
+                                                text="Share"
+                                                size="1em"
+                                                padding="0.5em" />
+                                        </button>
+                                    </ColumnFlex>
+
+                                </form>
+                            </ColumnFlex>
+                        </ArtchiveDescriptionCont>
+                    </ArtchiveCont>
+                    <Row>
+                        {posts && posts.map((art) => (
+                            <ArtFrame key={art.id}>
+                                <Art src={art.content} width={200} height={200} />
+                                <ArtistName>By {art.title}</ArtistName>
+                                <ArtDescription>"{art.description}"</ArtDescription>
+                            </ArtFrame>
+                        ))}
+                    </Row>
+                </ArtchivePageFlex>
+            </motion.div>
 
             <Footer />
         </>

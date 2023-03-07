@@ -7,6 +7,7 @@ import { ColourPalette } from '../components/ColourPalette'
 import RandomImage from '../components/RandomImage/randomimage'
 import { Footer } from '../components/Footer'
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
 const MainColumn = styled.div`
 display: flex;
@@ -55,32 +56,36 @@ export default function Home() {
                 bannerHeading="Art Inspiration Generator"
                 bannerDescription="Sometimes getting inspiration for art is difficult, but that's why we created an art inspiration generator! Here, you can generate a random colour palette, a random six letter word prompt, or a random image! Or all three if you like. The possibilities are endless!" />
 
-            <MainColumn>
-                <BoxContainer>
-                    <MainColumn>
+            <motion.div
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ ease: 'easeOut', duration: 1 }}
+                viewport={{ once: true }}
+            >
+                <MainColumn>
+                    <BoxContainer>
+                        <MainColumn>
 
-                        <ColourPalette />
-                    </MainColumn>
+                            <ColourPalette />
+                        </MainColumn>
 
-                </BoxContainer>
-                <BoxContainer>
+                    </BoxContainer>
 
-                    <MainRow>
-                        <FlexWrap>
-                            <MainColumn>
+                    <BoxContainer>
+                        <MainRow>
+                            <FlexWrap>
+                                <MainColumn>
+                                    <WordPrompt />
+                                </MainColumn>
+                                <MainColumn>
+                                    <RandomImage />
+                                </MainColumn>
+                            </FlexWrap>
+                        </MainRow>
+                    </BoxContainer>
 
-                                <WordPrompt />
-                            </MainColumn>
-                            <MainColumn>
-                                <RandomImage />
-                            </MainColumn>
-                        </FlexWrap>
-
-                    </MainRow>
-                </BoxContainer>
-
-            </MainColumn>
-
+                </MainColumn>
+            </motion.div>
             <Footer />
         </>
     )
