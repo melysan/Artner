@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+ # <img width='300px' src='public\artner_logo.svg'></img>  
 
-## Getting Started
+ <div style="background-color: #F4F5F0; border-radius: 10px; margin: auto; width: 50%; padding: 1em"> 
+ <img width='300px' src='public\about_artner_icons\Melysa_MaiAnh_Names.svg'></img> </div>
+<br>
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+"Artner is your one-stop web app for all your inspirational needs! Whether you need an art palette, word prompt, or imagery; we got your back.
+Not only that but we've included resources to share with you, and an archive of art AKA Artchive for you to share with others!" 
+<br>
+<br>
+This project was created by [Melysa Nguyen](https://github.com/melysan) and [Mai Anh Nguyen](https://github.com/mverakore) for MDIA-3109 - Advanced Dynamic Content Design.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## APIs Used
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- [Colourmind](http://colormind.io/api-access/)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- [Unsplash](https://unsplash.com/documentation)
 
-## Learn More
+- [Random Word API](https://random-word-api.herokuapp.com/home)
 
-To learn more about Next.js, take a look at the following resources:
+## Tools/Technology 
+- Next js 13 
+- Axios
+- Prisma
+- Styled Components 
+- Framer Motion
+- Playwright
+- Railway (for database)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## How to Install
+1. Clone Artner's repository.
+`git clone https://github.com/melysan/Artner.git`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. Go to Artner's directory.
+`cd ./Artner`
 
-## Deploy on Vercel
+3. Install the required dependencies.
+`npm i`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Place required API keys (i.e. Unsplash) and database URL into `.env.local` or `.env` file.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+5. Run the server. 
+`npm run dev`
+
+6. Visit local host at the correct port.
+`http://localhost:3000`
+
+
+## Resource References
+- [Fuel](https://www.truck.ca/fuel)
+- [Supply Victoria](https://supplyvictoria.ca/)
+- [Urban Source](https://urban-source.ca/store/)
+- [Jerry's Artarama](https://www.jerrysartarama.com/on-sale)
+- [Artist & Craftsman Supply](https://artistcraftsman.com/)
+- [Jackson's Art Supplies](https://www.jacksonsart.com/en-ca/)
+- [Blick](https://www.dickblick.com/)
+- [Cheap Joe's Art Stuff](https://www.cheapjoes.com/)
