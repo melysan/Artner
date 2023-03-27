@@ -5,7 +5,7 @@ import { Banner } from '../components/Banner'
 import { NavBar } from '../components/NavBar'
 import { ResourceCard } from '../components/ResourceCont'
 import { Footer } from '../components/Footer'
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion'
 
 
 import styles from '../styles/Home.module.css'
@@ -23,14 +23,14 @@ export default function Resources() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <div className={styles.main}>
+            <div id="resourceDiv" className={styles.main}>
                 <NavBar />
                 <Banner
                     bannerHeading="Resources"
                     bannerDescription="Welcome to our page of free art resources! Here, you will find a collection of valuable tools and materials that will help you to unleash your creativity and enhance your artistic skills without breaking the bank. So, dive in and start creating!" />
                 <ResourceCard />
             </div>
-            <Footer/>
+            <Footer />
         </>
     )
 }

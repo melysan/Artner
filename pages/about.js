@@ -40,7 +40,8 @@ export default function About() {
                 transition={{ ease: 'easeOut', duration: 1 }}
                 viewport={{ once: true }}
             >
-                <AboutFlex>
+                <AboutFlex
+                    id="aboutFlex">
 
                     <AboutComp />
                 </AboutFlex>

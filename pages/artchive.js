@@ -181,7 +181,7 @@ export default function Artchive({ posts: art }) {
                                     padding="1em" />
 
                                 <form onSubmit={handleSubmit} >
-                                    <label>
+                                    <label id="artistName">
                                         <Text
                                             text="Artist Name"
                                             size="1em"
@@ -192,7 +192,7 @@ export default function Artchive({ posts: art }) {
                                         value={title}
                                         onChange={(e) => setTitle(e.target.value)} />
 
-                                    <label>
+                                    <label id="descriptionName">
                                         <Text
                                             text="Description"
                                             size="1em"
@@ -231,7 +231,8 @@ export default function Artchive({ posts: art }) {
                     <Row>
                         {posts && posts.map((art) => (
                             <ArtFrame key={art.id}>
-                                <Art src={art.content} width={200} height={200} />
+                                <Art
+                                    src={art.content} width={200} height={200} />
                                 <ArtistName>By {art.title}</ArtistName>
                                 <ArtDescription>"{art.description}"</ArtDescription>
                             </ArtFrame>

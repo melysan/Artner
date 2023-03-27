@@ -62,8 +62,8 @@ export default function Home() {
                 transition={{ ease: 'easeOut', duration: 1 }}
                 viewport={{ once: true }}
             >
-                <MainColumn>
-                    <BoxContainer>
+                <MainColumn id="mainCont">
+                    <BoxContainer id="firstBox">
                         <MainColumn>
 
                             <ColourPalette />
