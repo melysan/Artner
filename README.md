@@ -1,15 +1,9 @@
  # <img width='300px' src='public\artner_logo.svg'></img>  
 
- <div style="background-color: #F4F5F0; border-radius: 10px; margin: auto; width: 50%; padding: 1em"> 
- <img width='300px' src='public\about_artner_icons\Melysa_MaiAnh_Names.svg'></img> </div>
-<br>
-
-
-
 "Artner is your one-stop web app for all your inspirational needs! Whether you need an art palette, word prompt, or imagery; we got your back.
 Not only that but we've included resources to share with you, and an archive of art AKA Artchive for you to share with others!" 
-<br>
-<br>
+
+
 This project was created by [Melysa Nguyen](https://github.com/melysan) and [Mai Anh Nguyen](https://github.com/mverakore) for MDIA-3109 - Advanced Dynamic Content Design.
 
 
