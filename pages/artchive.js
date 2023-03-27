@@ -133,6 +133,18 @@ const ArtFrame = styled.div`
     }
   }`
 
+const SubmitButton = styled.button`
+background-color: #9CB7D4;
+color: black;
+border: none;
+width: 245px;
+height: 55px;
+margin: 1rem;
+font-size: 16px;
+&:hover {
+background-color: #5F7A98;
+}`
+
 export default function Artchive({ posts: art }) {
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
@@ -215,13 +227,13 @@ export default function Artchive({ posts: art }) {
                                         onChange={(e) => setContent(e.target.value)} />
 
                                     <ColumnFlex>
-                                        <button type="submit">
+                                        <SubmitButton type="submit">
                                             <Text
                                                 textAlign='center'
                                                 text="Share"
                                                 size="1em"
                                                 padding="0.5em" />
-                                        </button>
+                                        </SubmitButton>
                                     </ColumnFlex>
 
                                 </form>
